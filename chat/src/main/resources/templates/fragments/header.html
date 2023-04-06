@@ -1,0 +1,27 @@
+<header class="p-3 text-bg-dark" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-3">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-text-fill" viewBox="0 0 16 16">
+                    <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
+                </svg>
+            </a>
+
+            <h3 class="mx-4">Chat</h3>
+            </div>
+            </div>
+
+             <div class="col-6">
+                 <h3 id="user_name" th:text="${user_name}"></h3>
+             </div>
+
+            <div class="col text-end">
+                <form th:action="@{/logout}" method="post"><input type="submit"></form>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</header>
