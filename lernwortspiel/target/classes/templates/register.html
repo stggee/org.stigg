@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Lernwortspiel</title>
+    <!-- Bootstrap css  -->
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="/webjars/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css">
+    <!-- App Css -->
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body style="background: #303030">
+
+<div class="container">
+    <div class="row justify-content-center align-items-center vh-100 d-flex">
+        <div id="content_container" class="col-10 pt-5">
+            <section>
+                <div class="container-fluid h-custom">
+                    <div id="form_container" class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-md-9 col-lg-9 col-xl-9">
+                            <form th:action="@{/app/register}" method="post" class="needs-validation" th:object="${new_user}" novalidate>
+                                <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                                    <h3 id="logo_text" class="w-100 text-center">LernWortSpiel</h3>
+                                </div>
+                                <div class="divider d-flex align-items-center my-4">
+                                    <p class="text-center fw-bold mx-3 mb-0" style="font-size: 1.3rem;">Registration</p>
+                                </div>
+                                <!-- First and Last Name -->
+                                <div class="row mb-4">
+                                    <div class="col-xl-6 col-sm-12">
+                                        <div class="form-floating">
+                                            <input th:field="*{firstName}" type="text" id="input_firstname" class="form-control form-control-lg"
+                                                   placeholder="Firstname" required/>
+                                            <label class="form-label" for="input_firstname">Firstname</label>
+                                            <div class="invalid-feedback">Can not be empty.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-sm-12">
+                                        <div class="form-floating">
+                                            <input th:field="*{lastName}" type="text" id="input_lastname" class="form-control form-control-lg"
+                                                   placeholder="Lastname" required/>
+                                            <label class="form-label" for="input_lastname">Lastname</label>
+                                            <div class="invalid-feedback">Can not be empty.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Email and Birthday -->
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-xl-9 mb-xl-0 mb-sm-3">
+                                        <div class="form-floating">
+                                            <input th:field="*{email}" type="email" id="input_email" class="form-control form-control-lg"
+                                                   placeholder="Email" required/>
+                                            <label class="form-label" for="input_email">Email</label>
+                                            <div class="invalid-feedback">Enter valid email.</div>
+                                        </div>
+                                    </div>
+                                    <!-- Datepicker -->
+                                    <div id="date_container" class="col-xl-3 text-center">
+                                        <div class="input-group form-floating">
+                                            <input th:field="*{birthday}" id="datepicker" type="text" class="form-control" placeholder="Birthday" required>
+                                            <label for="datepicker">Birthday</label>
+                                            <div class="invalid-feedback">Can not be empty.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Password and Confirm Password -->
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-xl-6 mb-xl-0 mb-sm-12">
+                                        <div class="form-floating">
+                                            <input th:field="*{password}" type="password" id="input_password" class="form-control form-control-lg"
+                                                   placeholder="Password" required/>
+                                            <label class="form-label" for="input_password">Password</label>
+                                            <div class="invalid-feedback">Can not be empty.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-sm-12">
+                                        <div class="form-floating">
+                                            <input type="password" id="input_password_confirm" class="form-control form-control-lg"
+                                                   placeholder="Confirm password" name="password_confirm" required/>
+                                            <label class="form-label" for="input_password_confirm">Confirm password</label>
+                                            <div class="invalid-feedback">Can not be empty.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Phone -->
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="form-floating">
+                                            <select th:field="*{countryCode}" id="countrySelect" class="form-select" aria-label="Country code">
+                                                <option value="+49">Germany (+49)</option>
+                                                <option value="+380">Ukraine (+380)</option>
+                                            </select>
+                                            <label for="countrySelect">Country code</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="form-floating mb-4">
+                                            <input th:field="*{phone}" type="tel" id="input_phone" class="form-control form-control-lg"
+                                                   placeholder="Phone" required/>
+                                            <label class="form-label" for="input_phone">Phone</label>
+                                            <div class="invalid-feedback">Can not be empty.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Checkbox -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input me-2" type="checkbox" id="input_agreement" required/>
+                                        <label id="condition_agreement_text" class="form-check-label" for="input_agreement">
+                                            I agree with the terms and conditions
+                                        </label>
+                                        <div class="invalid-feedback">Must be checked</div>
+                                    </div>
+                                </div>
+                                <!-- Register button and Login link -->
+                                <div class="text-center text-lg-start mt-4 pt-2">
+                                    <button id="button_login" type="submit" class="btn btn-lg">Register</button>
+                                    <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account?
+                                        <a href="/app/login" class="link-danger">Sign in</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="copyright_container" class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5">
+                    <!-- Copyright -->
+                    <div class="text-white mb-3 mb-md-0">
+                        Copyright © 2024. All rights reserved.
+                    </div>
+                    <!-- Author -->
+                    <div>
+                        <span>Yevhen Katyshev</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<!-- Datepicker JS -->
+<script src="/webjars/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+
+<!-- Custom JavaScript for form validation -->
+<script>
+    (function () {
+        'use strict'
+
+        // Получаем все формы, к которым нужно применить пользовательские стили валидации Bootstrap
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Перебираем их и предотвращаем отправку
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+
+<!-- Datepicker and Select config -->
+<script>
+    $(document).ready(function(){
+        $('#datepicker').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            todayHighlight: true,
+            endDate: '01.01.2012',
+            orientation: 'bottom auto',
+            startView: 'years',
+        });
+    });
+</script>
+
+</body>
+</html>

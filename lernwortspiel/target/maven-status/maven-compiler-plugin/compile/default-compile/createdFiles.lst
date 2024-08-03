@@ -1,0 +1,11 @@
+com/stigg/lernwortspiel/repositories/RoleRepository.class
+com/stigg/lernwortspiel/configs/Initializer.class
+com/stigg/lernwortspiel/repositories/UserRepository.class
+com/stigg/lernwortspiel/controllers/LoginRegisterController.class
+com/stigg/lernwortspiel/configs/WebSecurityConfig.class
+com/stigg/lernwortspiel/LernwortspielApplication.class
+com/stigg/lernwortspiel/configs/SessionEventListener.class
+com/stigg/lernwortspiel/enteties/User.class
+com/stigg/lernwortspiel/enteties/Role.class
+com/stigg/lernwortspiel/configs/SessionConfig.class
+com/stigg/lernwortspiel/services/UserService.class

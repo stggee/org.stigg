@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Lernwortspiel</title>
+    <!-- Bootstrap css  -->
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <!-- App Css -->
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body style="background: #303030">
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100 d-flex">
+            <div id="content_container" class="col-10 pt-5">
+                <section>
+                    <div class="container-fluid h-custom">
+                        <div  id="form_container" class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col-md-9 col-lg-6 col-xl-5">
+                                <img src="/images/draw2.webp"
+                                     class="img-fluid" alt="Sample image">
+                            </div>
+                            <div  class="col-md-8 col-lg-6 col-xl-5 offset-xl-1">
+
+                                <form th:action="@{/app/login}" method="post" class="needs-validation" novalidate>
+                                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                                        <h3 id="logo_text" class="w-100 text-center">LernWortSpiel</h3>
+                                    </div>
+
+                                    <div class="divider d-flex align-items-center my-4">
+                                        <p class="text-center fw-bold mx-3 mb-0" style="font-size: 1.3rem;">Sign in</p>
+                                    </div>
+
+                                    <!-- Email input -->
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="input_email" placeholder="name@example.com" name="username" required>
+                                        <label for="input_email">Email</label>
+                                        <div class="invalid-tooltip">Please enter a valid email.</div>
+                                    </div>
+
+
+                                    <!-- Password input -->
+                                    <div  class="form-floating mb-3">
+                                        <input type="password" id="input_password" class="form-control form-control-lg"
+                                               placeholder="Enter password" name="password" required/>
+                                        <label class="form-label" for="input_password">Password</label>
+                                        <div class="invalid-tooltip">Can not be empty.</div>
+                                    </div>
+
+                                    <!-- Error alert -->
+                                    <div id="error_alert" th:if="${param.error}" class="px-3 d-flex align-items-center justify-content-between alert alert-danger alert-dismissible fade show" role="alert">
+                                        <span th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}">Error</span>
+                                        <button type="button" class="btn" data-bs-dismiss="alert" aria-label="Close">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Logout alert -->
+                                    <div id="logout_alert" th:if="${param.logout}" class="px-3 d-flex align-items-center justify-content-between alert alert-success alert-dismissible fade show" role="alert">
+                                        You've been logout
+                                        <button type="button" class="btn" data-bs-dismiss="alert" aria-label="Close">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- Checkbox -->
+                                        <div class="form-check mb-0">
+                                            <input class="form-check-input me-2" type="checkbox" name="remember-me" id="input_remember_me"/>
+                                            <label id="remember_me_text" class="form-check-label" for="input_remember_me">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <a id="forgot_password_link" href="#" class="">Forgot password?</a>
+                                    </div>
+                                    <!-- Login button and Register link-->
+                                    <div class="text-center text-lg-start mt-4 pt-2">
+                                        <button id="button_login" type="submit" class="btn btn-lg">Login</button>
+
+                                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
+                                            <a href="/app/register" class="link-danger">Register</a></p>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="copyright_container" class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5">
+                        <!-- Copyright -->
+                        <div class="text-white mb-3 mb-md-0">
+                            Copyright © 2024. All rights reserved.
+                        </div>
+                        <!-- Copyright -->
+                        <div>
+                            <span>Yevhen Katyshev</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery -->
+    <script src="/webjars/jquery/3.7.1/jquery.min.js"></script>
+    <!--Bootstrap JS-->
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript for form validation -->
+    <script>
+        (function () {
+            'use strict'
+
+            // Получаем все формы, к которым нужно применить пользовательские стили валидации Bootstrap
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Перебираем их и предотвращаем отправку
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+
+</body>
+</html>

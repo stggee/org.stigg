@@ -1,0 +1,11 @@
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/LernwortspielApplication.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/configs/Initializer.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/configs/SessionConfig.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/configs/SessionEventListener.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/configs/WebSecurityConfig.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/controllers/LoginRegisterController.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/enteties/Role.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/enteties/User.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/repositories/RoleRepository.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/repositories/UserRepository.java
+/home/stigg/IdeaProjects/lernwortspiel/src/main/java/com/stigg/lernwortspiel/services/UserService.java

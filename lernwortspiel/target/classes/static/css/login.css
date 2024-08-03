@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+.h-custom {
+    height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
+
+#form_container {
+
+}
+
+#button_login{
+    width: 100%;
+    background-color: #3b5998;
+    color: white;
+    border: 1px solid #3b5998;
+    transition: transform 0.3s ease;
+}
+
+#button_login:hover{
+    transform: scale(1.1);
+}
+
+#copyright_container{
+    background-color: #3b5998;
+    border-radius: 0 0 9px 9px;
+}
+
+#content_container{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #787878;
+    border-radius: 10px;
+    color: whitesmoke;
+    padding: 0;
+    background-color: #3e3e3e;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.1rem;
+}
+
+.form-floating{
+    color: #494949 !important;
+}
+
+.form-floating .form-control:focus {
+    border-color: #86d553; /* Ваш цвет границы при фокусе */
+    box-shadow: 0 0 0 0.20rem #0065ef; /* Соответствующий цвет тени */
+}
+
+#logo_text{
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    color: #d21c2e;
+}
+
+#forgot_password_link{
+    color: white;
+}
+
+#logout_alert{
+    background-color: #051b11;
+    color: #5e977c;
+    border-color: #0f5132;
+}
+
+#error_alert{
+    background-color: #2c0b0e;
+    color: #e18088;
+    border-color: #842029;
+}
+
+#remember_me_text{
+    color: whitesmoke !important;
+}
+
+div > input[type=checkbox] {
+    background-color: whitesmoke !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+div > input[type=checkbox]:checked {
+    background-color: #3b5998 !important;
+    border-color: blue !important;
+    box-shadow: none !important;
+}
+
+#datepicker{
+    border-radius: 5px;
+}
